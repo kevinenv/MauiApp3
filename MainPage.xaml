@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp3.MainPage"
+             BackgroundColor="#D7F5AE"
+             >
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <Image
+                Source="logomecanica.jpg"
+                HeightRequest="100"
+                Aspect="AspectFit"
+                SemanticProperties.Description="dot net bot in a hovercraft number nine" />
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="20">
+                <VerticalStackLayout Grid.Column="0" Spacing="5">
+                    <Label Text="PLACA" />
+                    <Entry x:Name="Placa" TextColor="Black" Placeholder="Ingrese una placa"/>
+                </VerticalStackLayout>
+                <VerticalStackLayout Grid.Column="1" Spacing="5">
+                    <Label Text="MARCA" />
+                    <Entry x:Name="Marca" TextColor="Black" Placeholder="Ingrese una marca"/> 
+                </VerticalStackLayout>
+            </Grid>
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="20">
+                <VerticalStackLayout Grid.Column="0" Spacing="5">
+                    <Label Text="FECHA" />
+                    <DatePicker x:Name="Fecha" 
+                                TextColor="Black" 
+                                MinimumDate="01/01/2000"
+                                MaximumDate="01/12/2027"
+                                Date="06/11/2026"
+                                Format="dd-MM-yyyy"
+                                /> 
+                </VerticalStackLayout>
+                <VerticalStackLayout Grid.Column="1" Spacing="5">
+                    <Label Text="TIPO DE TRABAJO" />
+                    <Picker x:Name="Tipo" >
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>CAJA</x:String>
+                                <x:String>MOTOR</x:String>
+                                <x:String>FRENOS</x:String>
+                                <x:String>CAMBIO ACEITE</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                </VerticalStackLayout>
+            </Grid>
+
+
+            <Button
+                x:Name="BtnGuardar"
+                Text="GUARDAR DATOS" 
+                Clicked="Procesar"
+                HorizontalOptions="Fill" />
+
+            <Border Stroke="Red"
+                    StrokeThickness="2"
+                    StrokeShape="RoundRectangle 10"
+                    BackgroundColor="Cyan"
+                    Padding="5"
+                    >
+                <Grid x:Name="Dgv" ColumnSpacing="5" RowSpacing="3" Margin="5,5,5,5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" Text="PLACA" HorizontalTextAlignment="Center"/>
+                    <Label Grid.Row="0" Grid.Column="1" Text="MARCA" HorizontalTextAlignment="Center"/>
+                    <Label Grid.Row="0" Grid.Column="2" Text="FECHA" HorizontalTextAlignment="Center"/>
+                    <Label Grid.Row="0" Grid.Column="3" Text="TIPO" HorizontalTextAlignment="Center"/>
+                </Grid>
+            </Border>
+            
+            
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
